@@ -73,17 +73,11 @@ Tilemap* World::LoadTilemap(string _id, string _path)
 ////////////////////////////////////////////////////////////
 Tilemap* World::GetTilemap(string id)
 {
-	cout << "\tGetTilemap(): " << id << endl;
 	Tilemap* temp = &tilemaps.at(id);
-	cout << "\tFound Map: " << temp << endl;
-	cout << "\tCount: " << tilemaps.count(id) << endl;
+
 	// Check for existence of the SfTilemap
 	if (tilemaps.count(id) == 1)
-	{
-		cout << "345345";
 		return &tilemaps.at(id);
-		cout << "2";
-	}
 	else
 	{
 		cout << "Failed to find SfTilemap with ID: " << id << endl;

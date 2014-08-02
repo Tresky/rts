@@ -143,6 +143,9 @@ void SmartCamera::Update()
   else if (tracking_mode == SF_TRACK_MOUSE_CLICKDRAG)
     click_drag_initial_position = sf::Vector2f(sf::Mouse::getPosition());
 
+  else if (tracking_mode == SF_TRACK_MOUSE_EDGE)
+    HandleTrackMouseEdge();
+
   if (need_update)
     CalculatePosition();
 }
@@ -256,6 +259,23 @@ void SmartCamera::HandleTrackMouseClickDrag(sf::Event& _evt)
     /// Go-go gadget!
     SetPosition(new_position.x, new_position.y);
   }
+}
+
+void SmartCamera::HandleTrackMouseEdge()
+{
+  float x = sf::Mouse::getPosition(_window).x;
+  float y = sf::Mouse::getPosition(_window).y;
+
+  if (x >= size.x - 10.f)
+    x += 2.f;
+  if (x <= 10.f)
+    x -= 2.f;
+  if (y >= size.y - 10.f)
+    y += 2.f;
+  if (y <= 10.f)
+    y -= 2.f;
+
+  SetPosition(x, y);    
 }
 
 }

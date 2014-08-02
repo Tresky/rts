@@ -42,5 +42,5 @@ private:
 
 	sftile::Tilemap* current_map;
 
-	sftile::SmartCamera camera;
+	sftile::SmartCamera* camera;
 };

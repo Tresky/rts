@@ -41,6 +41,7 @@ enum TrackingMode
 	SF_TRACK_KEYS_PRESS, // Supported
 	SF_TRACK_MOUSE_CLICK, // Supported
 	SF_TRACK_MOUSE_CLICKDRAG, // Supported
+	SF_TRACK_MOUSE_EDGE
 };
   
 ///////////////////////////////////////////////////////////
@@ -242,6 +243,14 @@ private:
 	///
 	///////////////////////////////////////////////////////////
 	void HandleTrackMouseClickDrag(sf::Event& _evt);
+
+	///////////////////////////////////////////////////////////
+	/// \brief Handles calling the appropriate commands to move
+	///		   the map according to the position of the mouse
+	///		   relative to the edge of the window.
+	///
+	///////////////////////////////////////////////////////////
+	void HandleTrackMouseEdge();
 
 	///////////////////////////////////////////////////////////
 	/// \brief Handles calling the appropriate commands to
